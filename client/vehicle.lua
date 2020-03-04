@@ -6,7 +6,7 @@ function OpenVehicleSpawnerMenu(type, station, part, partNum)
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle', {
 		title    = _U('garage_title'),
-		align    = 'top-left',
+		align    = Config.MenuAlign,
 		elements = {
 			{label = _U('garage_storeditem'), action = 'garage'},
 			{label = _U('garage_storeitem'), action = 'store_garage'},
@@ -79,7 +79,7 @@ function OpenVehicleSpawnerMenu(type, station, part, partNum)
 					if #garage > 0 then
 						ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_garage', {
 							title    = _U('garage_title'),
-							align    = 'top-left',
+							align    = Config.MenuAlign,
 							elements = garage
 						}, function(data2, menu2)
 							if data2.current.stored then
@@ -209,12 +209,12 @@ function OpenShopMenu(elements, restoreCoords, shopCoords)
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_shop', {
 		title    = _U('vehicleshop_title'),
-		align    = 'top-left',
+		align    = Config.MenuAlign,
 		elements = elements
 	}, function(data, menu)
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_shop_confirm', {
 			title    = _U('vehicleshop_confirm', data.current.name, data.current.price),
-			align    = 'top-left',
+			align    = Config.MenuAlign,
 			elements = {
 				{label = _U('confirm_no'), value = 'no'},
 				{label = _U('confirm_yes'), value = 'yes'}
